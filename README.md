@@ -1,4 +1,4 @@
-# free-cell-ai-search-algorithms
+# Using Breadth First, Depth First, Best First and A* search to beat Free Cell
 A basic implementation of the free cell card game in Python 3.x, using various search algorithms to beat the game, including breadth first, depth first, best first, and A*.
 
 The node class creates objects representing the state of the game for every move made. The root node represents the inital state of the game; free cells and foundation piles are empty.
