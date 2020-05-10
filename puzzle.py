@@ -23,13 +23,12 @@ def constructTableau(table):
 	return table
 
 if __name__ == '__main__':
-	n=13
-	
+
 	options={1:depthFirstSearch, 2:breadthFirstSearch, 3:bestFirstSearch, 4:ASearch}
 	while True:
 
 
-		answer=int(input('Select search algorithm\n1.)Depth first\n2.)Breadth First\n3.)Best first\n4.)Best A*\nINPUT (1-4): '))
+		answer=int(input('Select search algorithm\n1.)Depth first\n2.)Breadth First\n3.)Best first\n4.)A*\nINPUT (1-4): '))
 		if answer<1 or answer>4:
 			print('Bye')
 			break
