@@ -99,7 +99,7 @@ class treeNode:
 
 	def moveToAFoundation(self,card,cardOriginIndex,origin):
 		for index, aFoundation in enumerate(self.foundation):
-			if (aFoundation[0]['number']==-1 and card['number']==0) or (aFoundation[-1]['symbol']==card['symbol'] and aFoundation[-1]['number']==card['number']-1):
+			if aFoundation[-1]['symbol']==card['symbol'] and aFoundation[-1]['number']==card['number']-1:
 		
 				childFreeCells,childFoundation,childTableau=self.newInstance()
 				

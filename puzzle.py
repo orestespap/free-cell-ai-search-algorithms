@@ -41,8 +41,10 @@ if __name__ == '__main__':
 			table=list_lines_txt(f'test{i}.txt')
 			
 			tableau=constructTableau(table)
-			defaultValue={'number':-1,'symbol':'','content':''}
-			freeCells,foundation=[None,None,None,None],[[defaultValue],[defaultValue],[defaultValue],[defaultValue]]
+			freeCells,foundation=[None,None,None,None],[[],[],[],[]]
+
+			for index,aColor in enumerate('SHDC'):
+				foundation[index].append({'number':-1,'symbol':aColor,'content':f'-1{aColor}'})
 			
 			root=treeNode(tableau,freeCells,foundation,None)
 			winner,seconds_=searchAlgorithm(root)
