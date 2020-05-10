@@ -3,6 +3,7 @@ import copy
 class treeNode:
 	totalNodes=0
 	deepCopy=copy.deepcopy
+	n=13 #number of cards
 	
 	def __init__(self, tableau, freeCells, foundation, parent):
 		self.tableau=tableau
@@ -24,7 +25,7 @@ class treeNode:
 
 	def checkFoundation(self):
 		for aPile in self.foundation:
-			if aPile and aPile[-1]['number']==12:
+			if aPile and aPile[-1]['number']==treeNode.n-1:
 				continue
 
 			return False
@@ -41,10 +42,6 @@ class treeNode:
 		for index,aPile in enumerate(self.tableau):
 			if aPile:
 
-				# if len(aPile)>8:
-				# 	for aCard in aPile:
-				# 		print(aCard['content'])
-				# 	exit()
 				aCard=aPile[-1]
 				result=self.moveToAFoundation(aCard,index,'t') #if a card can be moved to a foudation pile, then there is no point of trying other combinations
 				
@@ -118,9 +115,7 @@ class treeNode:
 			
 
 				child=treeNode(childTableau,childFreeCells,childFoundation,self)
-				
-				if len(childFoundation[index])>=1:
-					child.printFoundation()
+
 				
 				self.children.append(child)
 				return 1
