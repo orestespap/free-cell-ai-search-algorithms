@@ -112,6 +112,9 @@ class treeNode:
 					childTableau[cardOriginIndex].pop() #remove card from its original pile
 				else:
 					childFreeCells[cardOriginIndex]=None #remove from its free cell
+
+				#if len(childFoundation[index])>2: #for testing purposes
+					#self.printFoundation() 
 			
 
 				child=treeNode(childTableau,childFreeCells,childFoundation,self)
@@ -174,9 +177,15 @@ class treeNode:
 
 	def calculateASearchScore(self):
 
+		#f(n)= h(n) + g(n)
+		#h(n) = node's heuristic score, calculated via the BestFirstSearchScore function
+		#g(n) = node's depth level
+
 		currentNode,depth=self,0
 		while currentNode.parent:
 			depth+=1
 			currentNode=currentNode.parent
+
+		self.depth=depth
 		
 		return self.bestFirstScore+depth

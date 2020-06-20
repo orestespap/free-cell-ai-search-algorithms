@@ -176,16 +176,21 @@ def ASearch(rootNode):
 
 
 
-def nodeAlreadyExists(visitedList,notVisitedList,currentNode):
-	for aNode in visitedList:
-		if aNode.cardSetUpAlreadyExists(currentNode.cardSetUp):
+def nodeAlreadyExists(visitedList,notVisitedList,nodeOfInterest):
+#If newly generated node's state of the deck already exists in the graph, then the node is added to the unvisited node list IFF
+#its score is lower (and therefore better) than the other node's score. If there are multiple visited/unvisited nodes with the same state of the deck
+#but a higher score, then the new node is added to the unexplored nodes
+
+	for aNode in visitedList: 
+		if aNode.cardSetUpAlreadyExists(nodeOfInterest.cardSetUp) and aNode.AScore<nodeOfInterest.AScore:
 			return True
 
 	for aNode in notVisitedList:
-		if aNode.cardSetUpAlreadyExists(currentNode.cardSetUp):
+		if aNode.cardSetUpAlreadyExists(nodeOfInterest.cardSetUp) and aNode.AScore<nodeOfInterest.AScore:
 			return True
 	
 	return False
+	
 
 
 if __name__ == '__main__':

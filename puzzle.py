@@ -35,7 +35,7 @@ if __name__ == '__main__':
 		
 		searchAlgorithm=options[answer]
 		
-		for i in range(1,11):
+		for i in range(7,11):
 			print(f'Running test{i}...')
 			table=list_lines_txt(f'test{i}.txt')
 			
